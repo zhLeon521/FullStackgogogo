@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2021-05-23 16:58:39
- * @LastEditTime: 2021-05-24 20:17:31
+ * @LastEditTime: 2021-05-24 23:57:12
  * @FilePath: \fullstackgogogo\part1\src\App.js
  */
 import React, { useState} from 'react';
@@ -25,19 +25,19 @@ const App = () => {
     setCounter(0)
   }
 
-  const Display = (props) => {
+  const Display = ({counter}) => {
     return (
       <div>
-        {props.counter}
+        {counter}
       </div>
     )
   }
 
 
-  const Button = (props) => {
+  const Button = ({handleClick,text }) => {
     return (
-      <button onClick={props.handleClick}>
-        {props.text}
+      <button onClick={handleClick}>
+        {text}
       </button>
     )
 
