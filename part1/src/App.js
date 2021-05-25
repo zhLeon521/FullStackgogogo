@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2021-05-23 16:58:39
- * @LastEditTime: 2021-05-25 23:47:48
+ * @LastEditTime: 2021-05-26 00:03:58
  * @FilePath: \fullstackgogogo\part1\src\App.js
  */
 import React, { useState} from 'react';
@@ -21,6 +21,21 @@ const App = () => {
     setAll(allClicks.concat('R'))
     setRight(right+1)
   }
+
+  const History = (props) => {
+    if (props.allClicks.length === 0) {
+      return (
+        <div>
+          the app is used by pressing the buttons
+        </div>
+      ) 
+    }
+    return (
+      <div>
+        button press history: {props.allClicks.join('  ')}
+      </div>
+    )
+  }
   
 
   return (
@@ -30,7 +45,7 @@ const App = () => {
       <button onClick={handleLeftClick}>Left</button>
       <button onClick={handleRightClick}>Left</button>
       {right}
-      <p>{ allClicks.join('  ')}</p>
+      <History allClicks={allClicks}/>
 
     </>
   )
