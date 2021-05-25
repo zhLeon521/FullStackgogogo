@@ -2,7 +2,7 @@
  * @Description: 
  * @Autor: Blueheart
  * @Date: 2021-05-23 16:58:39
- * @LastEditTime: 2021-05-26 00:03:58
+ * @LastEditTime: 2021-05-26 00:13:56
  * @FilePath: \fullstackgogogo\part1\src\App.js
  */
 import React, { useState} from 'react';
@@ -21,6 +21,9 @@ const App = () => {
     setAll(allClicks.concat('R'))
     setRight(right+1)
   }
+  const Button = ({ handleClick, text }) => (
+    <button onClick={handleClick}>text</button>
+  )
 
   const History = (props) => {
     if (props.allClicks.length === 0) {
@@ -42,8 +45,8 @@ const App = () => {
     <>
       
       {left}
-      <button onClick={handleLeftClick}>Left</button>
-      <button onClick={handleRightClick}>Left</button>
+      <Button handleClick={ handleLeftClick} text='Left'/>
+      <Button handleClick={ handleRightClick} text='Right'/>
       {right}
       <History allClicks={allClicks}/>
 
