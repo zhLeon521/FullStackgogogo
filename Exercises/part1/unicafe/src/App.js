@@ -2,11 +2,37 @@
  * @Description: 小练习
  * @Autor: Blueheart
  * @Date: 2021-05-23 19:15:10
- * @LastEditTime: 2021-05-26 13:22:55
+ * @LastEditTime: 2021-05-26 13:43:41
  * @FilePath: \fullstackgogogo\Exercises\part1\unicafe\src\App.js
  */
 import React, { useState } from 'react';
 
+// //定义组件的正确位置
+const Statistics = (props) => {
+  if (props.sum === 0 && props.title === true) {
+    return (
+      <tr>
+        <td>No Feefback Given</td>
+      </tr>
+    )
+  }
+
+  if (props.sum === 0) {
+    return (
+      <tr>
+        <td></td>
+      </tr>
+    )
+  }
+
+  return (
+    <tr>
+      <td>{props.name} { props.category}</td>
+    </tr>
+    )
+
+  
+}
 
 const Button = ({ handleClick, text }) => (
   <button onClick={handleClick}>{text}</button>
@@ -36,9 +62,17 @@ const App = () => {
       <Button handleClick={handleBadClick} text="bad" />
 
       <h1>statistics</h1>
-     Good {good}
-     Bad  {bad}
-     Neutral {neutral}
+      <table>
+        <tbody>
+          <Statistics title={true} sum={good+bad+neutral } />
+          <Statistics name="Good" sum={good + bad + neutral} category={good }/>
+          <Statistics name="Bad" sum={good + bad + neutral} category={bad }/>
+          <Statistics name="Neutral" sum={good + bad + neutral} category={neutral }/>
+          <Statistics name="Average" sum={good + bad + neutral} category={(good - bad) / (good + bad + neutral)*100 +'%'}/>
+          <Statistics name="Positive" sum={good + bad + neutral} category={good /  (good + bad + neutral)*100+'%'}/>
+        </tbody>
+      </table>
+
     
     </div>
   )
