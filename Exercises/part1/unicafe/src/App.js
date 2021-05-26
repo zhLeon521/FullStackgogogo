@@ -2,7 +2,7 @@
  * @Description: 小练习
  * @Autor: Blueheart
  * @Date: 2021-05-23 19:15:10
- * @LastEditTime: 2021-05-26 13:43:41
+ * @LastEditTime: 2021-05-26 13:45:01
  * @FilePath: \fullstackgogogo\Exercises\part1\unicafe\src\App.js
  */
 import React, { useState } from 'react';
@@ -27,7 +27,7 @@ const Statistics = (props) => {
 
   return (
     <tr>
-      <td>{props.name} { props.category}</td>
+      <td>{props.name}</td><td> { props.category}</td>
     </tr>
     )
 
